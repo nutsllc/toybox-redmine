@@ -1,0 +1,16 @@
+redmine:
+    image: redmine:latest
+    links:
+        - mysql:mysql
+    environment:
+        - TOYBOX_GID=1000
+        - TOYBOX_UID=1000
+    ports:
+        - 3000:3000
+
+mysql:
+    image: nutsllc/toybox-mariadb:10.1.14
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_DATABASE=redmine
+
